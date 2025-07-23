@@ -79,42 +79,33 @@ h2 {
 
 #menu-panel {
   position: fixed;
-  top: 50px;
-  left: 10px;
+  top: 0;
+  left: -220px; /* disembunyikan di luar layar */
+  width: 200px;
+  height: 100vh;
   background: white;
-  padding: 12px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 20px 12px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  transition: left 0.3s ease;
   z-index: 999;
 }
 
-#menu-panel.hidden {
-  display: none;
+#menu-panel.show {
+  left: 0; /* tampil ke layar */
 }
 
-/* DARK MODE */
-body.dark-mode {
-  background-color: #121212;
-  color: #f1f1f1;
+#menu-panel h3 {
+  margin-top: 0;
 }
 
+/* DARK MODE tambahan */
 body.dark-mode #menu-toggle,
-body.dark-mode #menu-panel,
-body.dark-mode #seragam-section,
-body.dark-mode #olahraga-section,
-body.dark-mode #olahragaAuto,
-body.dark-mode #besok-section {
+body.dark-mode #menu-panel {
   background-color: #1e1e1e;
   color: #f1f1f1;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  box-shadow: 2px 0 8px rgba(255,255,255,0.1);
 }
 
-body.dark-mode button {
-  background-color: #333;
-  color: white;
-}
-
-body.dark-mode button:hover {
-  background-color: #555;
-}
 
