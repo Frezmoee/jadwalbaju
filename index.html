@@ -3,37 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jadwal Pakaian Sekolah</title>
+  <title>Seragam Hari Ini</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Jadwal Pakaian Sekolah</h1>
+  <h1>Seragam Hari Ini</h1>
 
-  <!-- BAGIAN SERAGAM OTOMATIS HARI INI -->
-  <div class="auto-detect">
-    <h2>Seragam Hari Ini</h2>
+  <div id="seragam-section">
+    <h2 id="namaHari"></h2>
     <img id="seragamHariIni" src="" alt="Seragam Hari Ini" />
-    <p id="namaHari"></p>
-
-    <div id="olahragaAuto" style="display:none">
-      <h3>Hari ini juga pakai baju olahraga!</h3>
-      <img src="images/olahraga.png" alt="Baju Olahraga" style="width:150px;" />
-    </div>
   </div>
 
-  <!-- JADWAL LENGKAP -->
-  <div class="schedule">
-    <div class="day"><img src="images/senin.png" alt="Senin" /><p>Senin</p></div>
-    <div class="day"><img src="images/selasa.png" alt="Selasa" /><p>Selasa</p></div>
-    <div class="day"><img src="images/rabu.png" alt="Rabu" /><p>Rabu</p></div>
-    <div class="day"><img src="images/kamis.png" alt="Kamis" /><p>Kamis</p></div>
-    <div class="day"><img src="images/jumat.png" alt="Jumat" /><p>Jumat</p></div>
-  </div>
-
-  <!-- PENGATURAN HARI OLAHRAGA -->
-  <div class="olahraga-section">
-    <h2>Atur Jadwal Baju Olahraga</h2>
-    <label for="olahragaDay">Pilih Hari:</label>
+  <div id="olahraga-section">
+    <h2>Pilih Hari Baju Olahraga</h2>
     <select id="olahragaDay" onchange="updateOlahraga()">
       <option value="senin">Senin</option>
       <option value="selasa">Selasa</option>
@@ -41,11 +23,11 @@
       <option value="kamis">Kamis</option>
       <option value="jumat">Jumat</option>
     </select>
+  </div>
 
-    <div id="olahragaDisplay">
-      <img src="images/olahraga.png" alt="Baju Olahraga"/>
-      <p id="olahragaText">Dipakai pada: Senin</p>
-    </div>
+  <div id="olahragaAuto" style="display:none">
+    <h2>Hari ini baju olahraga!</h2>
+    <img src="images/olahraga.png" alt="Baju Olahraga" style="width:150px;" />
   </div>
 
   <script src="script.js"></script>
