@@ -17,9 +17,7 @@ function tampilkanSeragamBesok() {
   const imgBesok = document.getElementById("seragamBesok");
   const teksHariBesok = document.getElementById("namaBesokHari");
 
-  teksHariBesok.innerText = "Hari: " + hariBesok.charAt(0).toUpperCase() + hariBesok.slice(1);
-
-  if (hariBesok === olahragaHari) {
+    if (hariBesok === olahragaHari) {
     imgBesok.src = "images/olahraga.webp";
     imgBesok.alt = "Baju Olahraga (Besok)";
   } else {
