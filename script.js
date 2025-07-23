@@ -64,7 +64,28 @@ function setelSeragamHariIni() {
   document.getElementById("seragamHariIni").alt = "Seragam hari " + hariIni;
 }
 
-// Inisialisasi saat halaman dimuat
+function toggleMenu() {
+  const panel = document.getElementById("menu-panel");
+  panel.classList.toggle("hidden");
+}
+
+function setTheme(mode) {
+  document.body.classList.remove("dark-mode", "light-mode");
+  if (mode === "dark") {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.add("light-mode");
+  }
+  localStorage.setItem("themeMode", mode);
+}
+
+function loadTheme() {
+  const mode = localStorage.getItem("themeMode") || "light";
+  setTheme(mode);
+  document.querySelector(`input[name="theme"][value="${mode}"]`).checked = true;
+}
+
+loadTheme();
 setelSeragamHariIni();
 tampilkanOlahraga();
 tampilkanSeragamBesok();
