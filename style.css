@@ -1,45 +1,40 @@
 body {
   font-family: Arial, sans-serif;
   text-align: center;
-  background: #aee3f9;
-  margin: 0;
-  padding: 20px;
+  margin: 20px;
+  background-color: #f9f9f9;
 }
 
 h1 {
-  margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 10px;
 }
 
-.schedule {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.day {
+#seragam-section, #olahraga-section, #olahragaAuto {
+  margin: 20px auto;
+  max-width: 320px;
+  padding: 16px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding: 10px;
-  width: 150px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.day img {
+#seragamHariIni,
+#olahragaAuto img {
   width: 100%;
+  height: auto;
+  margin-top: 12px;
   border-radius: 10px;
 }
 
-.olahraga-section {
-  margin-top: 40px;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  display: inline-block;
+#olahraga-section select {
+  padding: 8px;
+  font-size: 16px;
+  margin-top: 10px;
+  width: 100%;
 }
 
-#olahragaDisplay img {
-  width: 150px;
-  margin-top: 10px;
+h2 {
+  margin-bottom: 8px;
+  font-size: 20px;
 }
