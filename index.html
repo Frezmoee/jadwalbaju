@@ -9,6 +9,19 @@
 <body>
   <h1>Jadwal Pakaian Sekolah</h1>
 
+  <!-- BAGIAN SERAGAM OTOMATIS HARI INI -->
+  <div class="auto-detect">
+    <h2>Seragam Hari Ini</h2>
+    <img id="seragamHariIni" src="" alt="Seragam Hari Ini" />
+    <p id="namaHari"></p>
+
+    <div id="olahragaAuto" style="display:none">
+      <h3>Hari ini juga pakai baju olahraga!</h3>
+      <img src="images/olahraga.png" alt="Baju Olahraga" style="width:150px;" />
+    </div>
+  </div>
+
+  <!-- JADWAL LENGKAP -->
   <div class="schedule">
     <div class="day"><img src="images/senin.png" alt="Senin" /><p>Senin</p></div>
     <div class="day"><img src="images/selasa.png" alt="Selasa" /><p>Selasa</p></div>
@@ -17,6 +30,7 @@
     <div class="day"><img src="images/jumat.png" alt="Jumat" /><p>Jumat</p></div>
   </div>
 
+  <!-- PENGATURAN HARI OLAHRAGA -->
   <div class="olahraga-section">
     <h2>Atur Jadwal Baju Olahraga</h2>
     <label for="olahragaDay">Pilih Hari:</label>
