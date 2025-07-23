@@ -32,7 +32,7 @@ function tampilkanOlahraga() {
 function setelSeragamHariIni() {
   const hariIni = getToday();
   document.getElementById("namaHari").innerText = "Hari: " + hariIni.charAt(0).toUpperCase() + hariIni.slice(1);
-  document.getElementById("seragamHariIni").src = "images/" + hariIni + ".png";
+  document.getElementById("seragamHariIni").src = "images/" + hariIni + ".webp";
 }
 
 // Inisialisasi saat load
