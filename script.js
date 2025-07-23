@@ -8,12 +8,8 @@ function getToday() {
 function simpanOlahraga() {
   const selected = document.getElementById("olahragaDay").value;
   localStorage.setItem("hariOlahraga", selected);
-  nilaiAwalOlahraga = selected; // update nilai awal ke yang baru disimpan
-  tampilkanOlahraga();
-}
-
-function batalOlahraga() {
-  document.getElementById("olahragaDay").value = nilaiAwalOlahraga;
+  nilaiAwalOlahraga = selected;
+  tampilkanOlahraga(); // pastikan diperiksa ulang
 }
 
 function tampilkanOlahraga() {
@@ -21,14 +17,16 @@ function tampilkanOlahraga() {
   const hariIni = getToday();
   const display = document.getElementById("olahragaAuto");
 
-  if (hariIni === olahragaHari) {
-    display.style.display = "block";
-  } else {
-    display.style.display = "none";
-  }
-
-  // set dropdown ke nilai yang disimpan
+  // Set dropdown ke nilai yang disimpan
   document.getElementById("olahragaDay").value = olahragaHari;
+
+  // Render ulang baju olahraga jika sesuai
+  display.style.display = "none"; // sembunyikan dulu
+  setTimeout(() => {
+    if (hariIni === olahragaHari) {
+      display.style.display = "block"; // tampilkan ulang
+    }
+  }, 10);
 }
 
 function setelSeragamHariIni() {
