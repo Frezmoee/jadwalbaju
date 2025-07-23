@@ -5,6 +5,29 @@ function getToday() {
   return days[new Date().getDay()];
 }
 
+function getBesok() {
+  const days = ['minggu', "senin", "selasa", "rabu", "kamis", "jum'at", "sabtu"];
+  const besokIndex = (new Date().getDay() + 1) % 6;
+  return days[besokIndex];
+}
+
+function tampilkanSeragamBesok() {
+  const hariBesok = getBesok();
+  const olahragaHari = localStorage.getItem("hariOlahraga") || "senin";
+  const imgBesok = document.getElementById("seragamBesok");
+  const teksHariBesok = document.getElementById("namaHariBesok");
+
+  teksHariBesok.innerText = "Hari: " + hariBesok.charAt(0).toUpperCase() + hariBesok.slice(1);
+
+  if (hariBesok === olahragaHari) {
+    imgBesok.src = "images/olahraga.webp";
+    imgBesok.alt = "Baju Olahraga (Besok)";
+  } else {
+    imgBesok.src = "images/" + hariBesok + ".webp";
+    imgBesok.alt = "Seragam Hari " + hariBesok;
+  }
+}
+
 function simpanOlahraga() {
   const selected = document.getElementById("olahragaDay").value;
   localStorage.setItem("hariOlahraga", selected);
@@ -46,3 +69,4 @@ function setelSeragamHariIni() {
 // Inisialisasi saat halaman dimuat
 setelSeragamHariIni();
 tampilkanOlahraga();
+tampilkanSeragamBesok();
