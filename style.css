@@ -102,10 +102,39 @@ h2 {
 
 /* DARK MODE tambahan */
 body.dark-mode #menu-toggle,
-body.dark-mode #menu-panel {
+body.dark-mode #menu-panel,
+body.dark-mode #seragam-section,
+body.dark-mode #besok-section,
+body.dark-mode #olahragaAuto,
+body.dark-mode #olahraga-section 
+{
   background-color: #1e1e1e;
   color: #f1f1f1;
   box-shadow: 2px 0 8px rgba(255,255,255,0.1);
 }
+
+/* DARK MODE untuk seluruh halaman */
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* Tombol */
+body.dark-mode button {
+  background-color: #333;
+  color: white;
+}
+
+body.dark-mode button:hover {
+  background-color: #444;
+}
+
+/* Select Dropdown */
+body.dark-mode select {
+  background-color: #333;
+  color: white;
+  border: 1px solid #555;
+}
+
 
 
