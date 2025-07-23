@@ -1,10 +1,4 @@
-// Fungsi untuk kapital huruf pertama
-function kapital(s) {
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
-// Hari dan gambar seragam
-const daftarHari = ["minggu", "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"];
+const daftarHari = ["minggu", "senin", "selasa", "rabu", "kamis", "jumat"];
 const gambarHari = {
   senin: "images/senin.png",
   selasa: "images/selasa.png",
@@ -13,20 +7,28 @@ const gambarHari = {
   jumat: "images/jumat.png",
 };
 
-let hariOlahraga = "senin"; // default awal
+let hariOlahraga = "senin";
 
-// Fungsi menampilkan seragam hari ini
-function tampilkanSeragamHariIni() {
+function kapital(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+function updateOlahraga() {
+  const select = document.getElementById("olahragaDay");
+  hariOlahraga = select.value;
+  tampilkanHariIni();
+}
+
+function tampilkanHariIni() {
   const now = new Date();
-  const hari = now.getDay();
-  const hariNama = daftarHari[hari];
+  const hariNama = daftarHari[now.getDay()];
+  const namaHari = document.getElementById("namaHari");
   const gambar = document.getElementById("seragamHariIni");
-  const teks = document.getElementById("namaHari");
   const olahraga = document.getElementById("olahragaAuto");
 
   if (gambarHari[hariNama]) {
+    namaHari.innerText = `Hari ${kapital(hariNama)}`;
     gambar.src = gambarHari[hariNama];
-    teks.innerText = `Hari ini: ${kapital(hariNama)}`;
 
     if (hariNama === hariOlahraga) {
       olahraga.style.display = "block";
@@ -34,22 +36,10 @@ function tampilkanSeragamHariIni() {
       olahraga.style.display = "none";
     }
   } else {
-    gambar.alt = "Hari libur";
-    teks.innerText = "Hari ini libur (tidak ada seragam)";
+    namaHari.innerText = "Hari ini libur!";
+    gambar.src = "";
     olahraga.style.display = "none";
   }
 }
 
-// Fungsi saat user memilih hari olahraga
-function updateOlahraga() {
-  const select = document.getElementById("olahragaDay");
-  hariOlahraga = select.value;
-  const text = document.getElementById("olahragaText");
-  text.innerText = `Dipakai pada: ${kapital(hariOlahraga)}`;
-  tampilkanSeragamHariIni(); // periksa ulang apakah hari ini adalah hari olahraga
-}
-
-// Saat halaman selesai dimuat
-window.onload = function () {
-  tampilkanSeragamHariIni();
-};
+window.onload = tampilkanHariIni;
