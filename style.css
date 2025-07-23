@@ -34,6 +34,21 @@ h1 {
   width: 100%;
 }
 
+button {
+  padding: 6px 12px;
+  margin: 0 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
 h2 {
   margin-bottom: 8px;
   font-size: 20px;
