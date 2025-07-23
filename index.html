@@ -7,6 +7,19 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+<div id="menu-toggle" onclick="toggleMenu()">☰</div>
+
+<div id="menu-panel" class="hidden">
+  <h3>Pengaturan</h3>
+  <label>
+    <input type="radio" name="theme" value="light" onchange="setTheme('light')"> Light Mode
+  </label><br>
+  <label>
+    <input type="radio" name="theme" value="dark" onchange="setTheme('dark')"> Dark Mode
+  </label>
+</div>
+  
   <h1>Seragam Hari Ini</h1>
 
   <div id="seragam-section">
