@@ -35,9 +35,9 @@ h1 {
 }
 
 #seragamHariIni,
-#olahragaAuto,
-#besok-section
-img {
+#olahragaAuto img,
+#besok-section img 
+{
   width: 100%;
   height: auto;
   margin-top: 12px;
