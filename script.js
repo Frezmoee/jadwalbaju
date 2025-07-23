@@ -6,7 +6,7 @@ function getToday() {
 }
 
 function getBesok() {
-  const days = ['minggu', "senin", "selasa", "rabu", "kamis", "jum'at", "sabtu"];
+  const days = ['minggu', "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"];
   const besokIndex = (new Date().getDay() + 1) % 7;
   return days[besokIndex];
 }
