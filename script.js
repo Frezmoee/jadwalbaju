@@ -15,7 +15,7 @@ function tampilkanSeragamBesok() {
   const hariBesok = getBesok();
   const olahragaHari = localStorage.getItem("hariOlahraga") || "senin";
   const imgBesok = document.getElementById("seragamBesok");
-  const teksHariBesok = document.getElementById("namaHariBesok");
+  const teksHariBesok = document.getElementById("namaBesokHari");
 
   teksHariBesok.innerText = "Hari: " + hariBesok.charAt(0).toUpperCase() + hariBesok.slice(1);
 
