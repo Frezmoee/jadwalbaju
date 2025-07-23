@@ -9,7 +9,7 @@ function simpanOlahraga() {
   const selected = document.getElementById("olahragaDay").value;
   localStorage.setItem("hariOlahraga", selected);
   nilaiAwalOlahraga = selected; // update nilai awal ke yang baru disimpan
-  tampilkanOlahragaJikaPerlu();
+  tampilkanOlahraga();
 }
 
 function batalOlahraga() {
