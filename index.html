@@ -14,17 +14,21 @@
     <img id="seragamHariIni" src="" alt="Seragam Hari Ini" />
   </div>
 
-  <div id="olahraga-section">
-    <h2>Pilih Hari Baju Olahraga</h2>
-    <select id="olahragaDay" onchange="updateOlahraga()">
-      <option value="senin">Senin</option>
-      <option value="selasa">Selasa</option>
-      <option value="rabu">Rabu</option>
-      <option value="kamis">Kamis</option>
-      <option value="jumat">Jumat</option>
-    </select>
+<div id="olahraga-section">
+  <h2>Pilih Hari Baju Olahraga</h2>
+  <select id="olahragaDay">
+    <option value="senin">Senin</option>
+    <option value="selasa">Selasa</option>
+    <option value="rabu">Rabu</option>
+    <option value="kamis">Kamis</option>
+    <option value="jumat">Jumat</option>
+  </select>
+  <div style="margin-top:10px;">
+    <button onclick="simpanOlahraga()">Simpan</button>
+    <button onclick="batalOlahraga()">Batal</button>
   </div>
-
+</div>
+  
   <div id="olahragaAuto" style="display:none">
     <h2>Hari ini baju olahraga!</h2>
     <img src="images/olahraga.png" alt="Baju Olahraga" style="width:150px;" />
