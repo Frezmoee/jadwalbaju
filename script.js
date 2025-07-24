@@ -82,18 +82,6 @@ function setTheme(mode) {
   localStorage.setItem("themeMode", mode);
 }
 
-const toggle = document.getElementById("toggle-theme");
-toggle.addEventListener("change", () => {
-  const mode = toggle.checked ? "dark" : "light";
-  setTheme(mode); // aslinya sudah di script sebelumnya
-  localStorage.setItem("themeMode", mode);
-});
-
-function loadTheme() {
-  const mode = localStorage.getItem("themeMode") || "light";
-  setTheme(mode);
-  document.querySelector(`input[name="theme"][value="${mode}"]`).checked = true;
-}
 
 loadTheme();
 setelSeragamHariIni();
