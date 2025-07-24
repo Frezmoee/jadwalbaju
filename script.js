@@ -66,7 +66,10 @@ function setelSeragamHariIni() {
 
 function toggleMenu() {
   const panel = document.getElementById("menu-panel");
+  const body = document.body;
+  
   panel.classList.toggle("show");
+  body.classList.toggle("panel-open");
 }
 
 function setTheme(mode) {
