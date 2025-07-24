@@ -80,7 +80,7 @@ h2 {
 #menu-panel {
   position: fixed;
   top: 0;
-  left: -220px; /* disembunyikan di luar layar */
+  left: -250px; /* disembunyikan di luar layar */
   width: 200px;
   height: 100vh;
   background: white;
