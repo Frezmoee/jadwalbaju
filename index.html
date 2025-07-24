@@ -6,21 +6,20 @@
   <title>Seragam Hari Ini</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
-<label class="theme-switch">
-  <input type="checkbox" id="toggle-theme" />
-  <span class="slider"></span>
-</label>
-  
 <body>
 
 <div id="menu-toggle" onclick="toggleMenu()">☰</div>
 
 <div id="menu-panel">
   <button id="close-panel" onclick="toggleMenu()">X</button>
-  <h3>Pengaturan</h3>
-  <label><input type="radio" name="theme" value="light" onchange="setTheme('light')"> Light Mode</label><br>
-  <label><input type="radio" name="theme" value="dark" onchange="setTheme('dark')"> Dark Mode</label>
+<h3>Pengaturan</h3>
+<div class="toggle-container">
+  <label class="theme-switch">
+    <input type="checkbox" id="toggle-theme" />
+    <span class="slider"></span>
+  </label>
+  <p id="toggle-label">Light Mode</p>
+</div>
 </div>
   
   <h1>Seragam Hari Ini</h1>
