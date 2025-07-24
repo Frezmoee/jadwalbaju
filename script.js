@@ -68,6 +68,13 @@ function setTheme(mode) {
   document.body.classList.toggle("dark-mode", mode === "dark");
 }
 
+function toggleMenu() {
+  const panel = document.getElementById("menu-panel");
+  const body = document.body;
+  panel.classList.toggle("show");
+  body.classList.toggle("panel-open");
+}
+
 const toggle = document.getElementById("toggle-theme");
 const label = document.getElementById("toggle-label");
 
