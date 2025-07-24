@@ -25,7 +25,11 @@ h1 {
   margin-bottom: 10px;
 }
 
-#seragam-section, #olahraga-section, #olahragaAuto, #besok-section {
+#seragam-section, 
+#olahraga-section, 
+#olahragaAuto, 
+#besok-section
+{
   margin: 20px auto;
   max-width: 320px;
   padding: 16px;
@@ -137,14 +141,16 @@ body.dark-mode select {
 }
 
 #close-panel {
-  position: absolute;
+  position: fixed;
   top: 10px;
   right: 10px;
-  background: none;
-  color: inherit;
-  font-size: 20px;
-  border: none;
+  font-size: 24px;
   cursor: pointer;
+  background: white;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
 /* Sembunyikan menu toggle saat panel terbuka */
