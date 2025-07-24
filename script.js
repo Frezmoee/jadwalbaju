@@ -64,26 +64,36 @@ function setelSeragamHariIni() {
   document.getElementById("seragamHariIni").alt = "Seragam hari " + hariIni;
 }
 
-function toggleMenu() {
-  const panel = document.getElementById("menu-panel");
-  const body = document.body;
-  
-  panel.classList.toggle("show");
-  body.classList.toggle("panel-open");
-}
-
 function setTheme(mode) {
-  document.body.classList.remove("dark-mode", "light-mode");
-  if (mode === "dark") {
-    document.body.classList.add("dark-mode");
-  } else {
-    document.body.classList.add("light-mode");
-  }
-  localStorage.setItem("themeMode", mode);
+  document.body.classList.toggle("dark-mode", mode === "dark");
 }
 
+const toggle = document.getElementById("toggle-theme");
+const label = document.getElementById("toggle-label");
 
+toggle.addEventListener("change", () => {
+  const mode = toggle.checked ? "dark" : "light";
+  setTheme(mode);
+  localStorage.setItem("themeMode", mode);
+  label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+});
+
+function loadTheme() {
+  const mode = localStorage.getItem("themeMode") || "light";
+  setTheme(mode);
+  if (mode === "dark") {
+    toggle.checked = true;
+    label.textContent = "Dark Mode";
+  } else {
+    toggle.checked = false;
+    label.textContent = "Light Mode";
+  }
+}
+
+// Pastikan dipanggil saat load
 loadTheme();
+
+
 setelSeragamHariIni();
 tampilkanOlahraga();
 tampilkanSeragamBesok();
