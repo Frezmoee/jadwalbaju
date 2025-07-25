@@ -145,6 +145,19 @@ function loadTheme() {
   }
 }
 
+function tampilkanHalamanJadwal() {
+  document.getElementById("halaman-seragam").style.display = "none";
+  document.getElementById("halaman-jadwal").style.display = "block";
+  tampilkanPelajaranHariIni();
+  tampilkanPelajaranBesok();
+  toggleMenu(); // tutup panel
+}
+
+function kembaliKeHalamanSeragam() {
+  document.getElementById("halaman-jadwal").style.display = "none";
+  document.getElementById("halaman-seragam").style.display = "block";
+}
+
 // Pastikan dipanggil saat load
 loadTheme();
 setelSeragamHariIni();
