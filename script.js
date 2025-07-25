@@ -161,26 +161,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Event handler toggle dark mode
-  const toggle = document.getElementById("toggle-theme");
-  const label = document.getElementById("toggle-label");
-  toggle.addEventListener("change", () => {
-    const mode = toggle.checked ? "dark" : "light";
-    setTheme(mode);
-    localStorage.setItem("themeMode", mode);
-    label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
-  });
+  document.getElementById("toggle-theme").addEventListener("change", function () {
+  const mode = this.checked ? "dark" : "light";
+  setTheme(mode);
+  localStorage.setItem("themeMode", mode);
+  document.getElementById("toggle-label").textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+});
 
-  // Event handler toggle halaman jadwal
-  const toggleJadwal = document.getElementById("toggle-jadwal");
-  toggleJadwal.addEventListener("change", function () {
-    if (this.checked) {
-      tampilkanHalamanJadwal();
-      document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
-    } else {
-      kembaliKeHalamanSeragam();
-      document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
-    }
-  });
+document.getElementById("toggle-jadwal").addEventListener("change", function () {
+  const checked = this.checked;
+  if (checked) {
+    tampilkanHalamanJadwal();
+    document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
+  } else {
+    kembaliKeHalamanSeragam();
+    document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
+  }
+});
 
   // Jalankan saat halaman dimuat
   loadTheme();
