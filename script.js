@@ -163,5 +163,3 @@ loadTheme();
 setelSeragamHariIni();
 tampilkanOlahraga();
 tampilkanSeragamBesok();
-tampilkanPelajaranHariIni();
-tampilkanPelajaranBesok();
