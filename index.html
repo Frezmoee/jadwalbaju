@@ -6,6 +6,18 @@
   <title>Seragam Hari Ini</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
+  <!-- Bagian Jadwal Pelajaran -->
+<div id="jadwal-pelajaran" class="pelajaran-section">
+  <h2>Jadwal Pelajaran Hari Ini</h2>
+  <p id="judulPelajaranHariIni"></p>
+  <img id="jadwalPelajaranHariIni" loading="lazy" class="seragam-img" />
+
+  <h2 style="margin-top: 24px;">Jadwal Pelajaran Besok</h2>
+  <p id="judulPelajaranBesok"></p>
+  <img id="jadwalPelajaranBesok" loading="lazy" class="seragam-img" />
+</div>
+  
 <body>
 
 <div id="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -13,6 +25,10 @@
 <div id="menu-panel">
   <button id="close-panel" onclick="toggleMenu()">X</button>
 <h3>Pengaturan</h3>
+
+  <div class="panel-content">
+    <!-- Tombol Jadwal Pelajaran -->
+  <button class="panel-btn" onclick="scrollToPelajaran()">Jadwal Pelajaran</button>
 
   <div class="toggle-container">
     <label class="theme-switch">
