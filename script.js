@@ -93,40 +93,23 @@ function setelSeragamHariIni() {
 }
 
 function tampilkanPelajaranHariIni() {
-  const hariIni = getToday();
-  const pelajaranHariIni = document.getElementById("jadwalPelajaranHariIni");
-
-  if (hariIni === "sabtu" || hariIni === "minggu") {
-    pelajaranHariIni.style.display = "none";
-    document.getElementById("judulPelajaranHariIni").innerText = "Hari ini libur";
-  } else {
-    pelajaranHariIni.style.display = "block";
-    pelajaranHariIni.src = "jadwalpelajaran/" + hariIni + ".webp";
-    pelajaranHariIni.alt = "Jadwal Pelajaran Hari " + hariIni;
-  }
+  const hari = getToday();
+  const img = document.getElementById("jadwalPelajaranHariIni");
+  document.getElementById("judulPelajaranHariIni").innerText = "Hari: " + capitalize(hari);
+  img.src = "jadwalpelajaran/" + hari + ".webp";
+  img.alt = "Jadwal Pelajaran " + hari;
 }
 
 function tampilkanPelajaranBesok() {
-  const hariBesok = getBesok();
-  const pelajaranBesok = document.getElementById("jadwalPelajaranBesok");
-
-  if (hariBesok === "sabtu" || hariBesok === "minggu") {
-    pelajaranBesok.style.display = "none";
-    document.getElementById("judulPelajaranBesok").innerText = "Besok libur";
-  } else {
-    pelajaranBesok.style.display = "block";
-    pelajaranBesok.src = "jadwalpelajaran/" + hariBesok + ".webp";
-    pelajaranBesok.alt = "Jadwal Pelajaran Hari " + hariBesok;
-    document.getElementById("judulPelajaranBesok").innerText = "Hari: " + capitalize(hariBesok);
-  }
+  const hari = getBesok();
+  const img = document.getElementById("jadwalPelajaranBesok");
+  document.getElementById("judulPelajaranBesok").innerText = "Hari: " + capitalize(hari);
+  img.src = "jadwalpelajaran/" + hari + ".webp";
+  img.alt = "Jadwal Pelajaran " + hari;
 }
 
-function scrollToPelajaran() {
-  const section = document.getElementById("jadwal-pelajaran");
-  if (section) {
-    section.scrollIntoView({ behavior: "smooth" });
-    closePanel();
-  }
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 function setTheme(mode) {
