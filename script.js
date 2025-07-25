@@ -17,14 +17,24 @@ function tampilkanSeragamBesok() {
   const imgBesok = document.getElementById("seragamBesok");
   const teksHariBesok = document.getElementById("namaBesokHari");
 
-    if (hariBesok === olahragaHari) {
-    imgBesok.src = "images/olahraga.webp";
-    imgBesok.alt = "Baju Olahraga (Besok)";
+  if (hariBesok === "sabtu" || hariBesok === "minggu") {
+    teksHariBesok.innerText = "Besok libur";
+    imgBesok.style.display = "none";
   } else {
-    imgBesok.src = "images/" + hariBesok + ".webp";
-    imgBesok.alt = "Seragam Hari " + hariBesok;
+    teksHariBesok.innerText = "Hari: " + hariBesok.charAt(0).toUpperCase() + hariBesok.slice(1);
+
+    if (hariBesok === olahragaHari) {
+      imgBesok.src = "images/olahraga.webp";
+      imgBesok.alt = "Baju Olahraga (Besok)";
+    } else {
+      imgBesok.src = "images/" + hariBesok + ".webp";
+      imgBesok.alt = "Seragam Hari " + hariBesok;
+    }
+
+    imgBesok.style.display = "block";
   }
 }
+
 
 function simpanOlahraga() {
   const selected = document.getElementById("olahragaDay").value;
@@ -44,6 +54,12 @@ function tampilkanOlahraga() {
   const olahragaHari = localStorage.getItem("hariOlahraga") || "senin";
   const hariIni = getToday();
   const display = document.getElementById("olahragaAuto");
+
+  // Hari libur? Jangan tampilkan
+  if (hariIni === "sabtu" || hariIni === "minggu") {
+    display.style.display = "none";
+    return;
+  }
 
   // Set dropdown ke nilai yang disimpan
   document.getElementById("olahragaDay").value = olahragaHari;
