@@ -47,9 +47,7 @@ h1 {
 
 #seragamHariIni,
 #olahragaAuto img,
-#besok-section img,
-#halaman-jadwal img
-{
+#besok-section img {
   width: 100%;
   height: auto;
   margin-top: 12px;
@@ -112,6 +110,15 @@ h2 {
   margin-top: 0;
 }
 
+#halaman-jadwal {
+  margin: 20px auto;
+  max-width: 320px;
+  padding: 16px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
 /* DARK MODE tambahan */
 body.dark-mode #menu-toggle,
 body.dark-mode #menu-panel,
@@ -167,7 +174,7 @@ body.panel-open #menu-toggle {
 }
 
 
-/* Toggle dark/light modern (seperti di video) */
+/* Toggle theme*/
 .theme-switch {
   position: relative;
   display: inline-block;
@@ -212,21 +219,4 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(22px);
-}
-
-.panel-btn {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 16px;
-  text-align: left;
-  background-color: #f1f1f1;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.panel-btn:hover {
-  background-color: #ddd;
 }
