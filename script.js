@@ -143,9 +143,10 @@ function setTheme(mode) {
   document.body.classList.toggle("dark-mode", mode === "dark");
 }
 
+const panel = document.getElementById("menu-panel");
+const body = document.body;
+
 function toggleMenu() {
-  const panel = document.getElementById("menu-panel");
-  const body = document.body;
   panel.classList.toggle("show");
   body.classList.toggle("panel-open");
 }
@@ -156,9 +157,23 @@ const label = document.getElementById("toggle-label");
 toggle.addEventListener("change", () => {
   const mode = toggle.checked ? "dark" : "light";
   setTheme(mode);
-    localStorage.setItem("themeMode", mode);
-    label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
-  });
+  localStorage.setItem("themeMode", mode);
+  label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+});
+
+// ✅ Perbaikan fungsi toggle halaman jadwal
+document.getElementById("toggle-jadwal").addEventListener("change", function () {
+  const checked = this.checked;
+  if (checked) {
+    tampilkanHalamanJadwal();
+    document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
+  } else {
+    kembaliKeHalamanSeragam();
+    document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
+  }
+});
+
+
 
 
 // Fungsi toggle halaman berdasarkan switch
