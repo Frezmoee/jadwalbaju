@@ -6,18 +6,6 @@
   <title>Seragam Hari Ini</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
-  <!-- Bagian Jadwal Pelajaran -->
-<div id="jadwal-pelajaran" class="pelajaran-section">
-  <h2>Jadwal Pelajaran Hari Ini</h2>
-  <p id="judulPelajaranHariIni"></p>
-  <img id="jadwalPelajaranHariIni" loading="lazy" class="seragam-img" />
-
-  <h2 style="margin-top: 24px;">Jadwal Pelajaran Besok</h2>
-  <p id="judulPelajaranBesok"></p>
-  <img id="jadwalPelajaranBesok" loading="lazy" class="seragam-img" />
-</div>
-  
 <body>
 
 <div id="menu-toggle" onclick="toggleMenu()">☰</div>
@@ -55,6 +43,16 @@
   <div id="olahragaAuto" style="display:none">
     <h2>Hari ini baju olahraga!</h2>
     <img src="images/olahraga.webp" alt="Baju Olahraga" class="seragam-img" loading="lazy" />
+  </div>
+
+  <div id="halaman-jadwal" style="display:none;">
+  <h2>Jadwal Pelajaran Hari Ini</h2>
+  <p id="judulPelajaranHariIni"></p>
+  <img id="jadwalPelajaranHariIni" class="seragam-img" loading="lazy" alt="" />
+
+  <h2>Jadwal Pelajaran Besok</h2>
+  <p id="judulPelajaranBesok"></p>
+  <img id="jadwalPelajaranBesok" class="seragam-img" loading="lazy" alt="" />
   </div>
 
 <div id="olahraga-section">
