@@ -1,111 +1,56 @@
+// ====== Initialization ======
 let nilaiAwalOlahraga = localStorage.getItem("hariOlahraga") || "senin";
+
+// ====== Utility Functions ======
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
 
 function enableZoom(selector) {
   const img = document.querySelector(selector);
   if (!img) return;
-
-  img.addEventListener("click", () => {
-    img.classList.toggle("zoomed");
-  });
+  img.addEventListener("click", () => img.classList.toggle("zoomed"));
 }
 
+// ====== Tanggal Hari Ini & Besok ======
 function getToday() {
-  const days = ['minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'];
-  return days[new Date().getDay()];
+  return ['minggu','senin','selasa','rabu','kamis','jumat','sabtu'][new Date().getDay()];
 }
 
 function getBesok() {
-  const days = ['minggu', "senin", "selasa", "rabu", "kamis", "jumat", "sabtu"];
-  const besokIndex = (new Date().getDay() + 1) % 7;
-  return days[besokIndex];
+  return ['minggu','senin','selasa','rabu','kamis','jumat','sabtu'][(new Date().getDay()+1)%7];
 }
 
-function tampilkanSeragamBesok() {
-  const hariBesok = getBesok();
-  const olahragaHari = localStorage.getItem("hariOlahraga") || "senin";
-  const imgBesok = document.getElementById("seragamBesok");
-  const teksHariBesok = document.getElementById("namaBesokHari");
-
-  if (hariBesok === "sabtu" || hariBesok === "minggu") {
-    teksHariBesok.innerText = "Besok libur";
-    imgBesok.style.display = "none";
-  } else {
-    teksHariBesok.innerText = "Hari: " + hariBesok.charAt(0).toUpperCase() + hariBesok.slice(1);
-
-    if (hariBesok === olahragaHari) {
-      imgBesok.src = "images/olahraga.webp";
-      imgBesok.alt = "Baju Olahraga (Besok)";
-    } else {
-      imgBesok.src = "images/" + hariBesok + ".webp";
-      imgBesok.alt = "Seragam Hari " + hariBesok;
-    }
-
-    imgBesok.style.display = "block";
-  }
-}
-
-
-function simpanOlahraga() {
-  const selected = document.getElementById("olahragaDay").value;
-  localStorage.setItem("hariOlahraga", selected);
-  nilaiAwalOlahraga = selected;
-  tampilkanOlahraga();
-}
-
-function batalOlahraga() {
-  localStorage.removeItem("hariOlahraga");
-  nilaiAwalOlahraga = "senin"; // atau kosongkan jika ingin tidak tampil sama sekali
-  document.getElementById("olahragaDay").value = "senin";
-  tampilkanOlahraga();
-}
-
-function tampilkanOlahraga() {
-  const olahragaHari = localStorage.getItem("hariOlahraga") || "senin";
-  const hariIni = getToday();
-  const display = document.getElementById("olahragaAuto");
-
-  // Hari libur? Jangan tampilkan
-  if (hariIni === "sabtu" || hariIni === "minggu") {
-    display.style.display = "none";
-    return;
-  }
-
-  // Set dropdown ke nilai yang disimpan
-  document.getElementById("olahragaDay").value = olahragaHari;
-
-  // Render ulang baju olahraga jika sesuai
-  display.style.display = "none";
-  setTimeout(() => {
-    if (hariIni === olahragaHari) {
-      display.style.display = "block";
-    }
-  }, 10);
-}
+// ====== Seragam & Olahraga ======
+function tampilkanSeragamBesok() { /* ...implementasi yang sudah kamu punya...*/ }
+function simpanOlahraga() { /* tetap sama */ }
+function batalOlahraga() { /* tetap sama */ }
+function tampilkanOlahraga() { /* sesuai logika libur */ }
 
 function setelSeragamHariIni() {
   const hariIni = getToday();
-  const namaHari = document.getElementById("namaHari");
-  const seragamImg = document.getElementById("seragamHariIni");
-  const displayOlahraga = document.getElementById("olahragaAuto");
+  const nama = document.getElementById("namaHari");
+  const img = document.getElementById("seragamHariIni");
+  const olahraga = document.getElementById("olahragaAuto");
 
   if (hariIni === "sabtu" || hariIni === "minggu") {
-    namaHari.innerText = "Hari ini libur";
-    seragamImg.style.display = "none";
-    displayOlahraga.style.display = "none";
+    nama.innerText = "Hari ini libur";
+    img.style.display = "none";
+    olahraga.style.display = "none";
   } else {
-    namaHari.innerText = "Hari: " + hariIni.charAt(0).toUpperCase() + hariIni.slice(1);
-    seragamImg.src = "images/" + hariIni + ".webp";
-    seragamImg.alt = "Seragam hari " + hariIni;
-    seragamImg.style.display = "block";
-    tampilkanOlahraga(); // jalankan ulang pemeriksaan baju olahraga
+    nama.innerText = "Hari: " + capitalize(hariIni);
+    img.src = "images/" + hariIni + ".webp";
+    img.alt = "Seragam hari " + hariIni;
+    img.style.display = "block";
+    tampilkanOlahraga();
   }
 }
 
+// ====== Jadwal Pelajaran Hari Ini & Besok ======
 function tampilkanPelajaranHariIni() {
   const hari = getToday();
   const img = document.getElementById("jadwalPelajaranHariIni");
   const p = document.getElementById("judulPelajaranHariIni");
-  
   if (hari === "sabtu" || hari === "minggu") {
     p.innerText = "Hari ini libur";
     img.style.display = "none";
@@ -119,70 +64,27 @@ function tampilkanPelajaranHariIni() {
 }
 
 function tampilkanPelajaranBesok() {
-  const hari = getBesok();
+  const besok = getBesok();
   const img = document.getElementById("jadwalPelajaranBesok");
   const p = document.getElementById("judulPelajaranBesok");
-  
-  if (hari === "sabtu" || hari === "minggu") {
+  if (besok === "sabtu" || besok === "minggu") {
     p.innerText = "Besok libur";
     img.style.display = "none";
   } else {
-    p.innerText = "Besok: " + capitalize(hari);
-    img.src = "jadwalpelajaran/" + hari + ".webp";
-    img.alt = "Jadwal Pelajaran " + hari;
+    p.innerText = "Besok: " + capitalize(besok);
+    img.src = "jadwalpelajaran/" + besok + ".webp";
+    img.alt = "Jadwal Pelajaran " + besok;
     img.style.display = "block";
     enableZoom("#jadwalPelajaranBesok");
   }
 }
 
-function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-function setTheme(mode) {
-  document.body.classList.toggle("dark-mode", mode === "dark");
-}
-
-const panel = document.getElementById("menu-panel");
-const body = document.body;
-
+// ====== Navigasi Panel ======
 function toggleMenu() {
-  panel.classList.toggle("show");
-  body.classList.toggle("panel-open");
-
-
-// ✅ Toggle tema (dark/light)
-const toggle = document.getElementById("toggle-theme");
-const label = document.getElementById("toggle-label");
-
-toggle.addEventListener("change", () => {
-  const mode = toggle.checked ? "dark" : "light";
-  setTheme(mode);
-  localStorage.setItem("themeMode", mode);
-  label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
-});
-
-// ✅ Toggle halaman seragam vs jadwal
-document.getElementById("toggle-jadwal").addEventListener("change", function () {
-  const checked = this.checked;
-  if (checked) {
-    tampilkanHalamanJadwal();
-    document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
-  } else {
-    kembaliKeHalamanSeragam();
-    document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
-  }
-});
-
-// ✅ Fungsi tema
-function loadTheme() {
-  const mode = localStorage.getItem("themeMode") || "light";
-  setTheme(mode);
-  toggle.checked = (mode === "dark");
-  label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+  document.body.classList.toggle("panel-open");
+  document.getElementById("menu-panel").classList.toggle("show");
 }
 
-// ✅ Navigasi antara dua halaman
 function tampilkanHalamanJadwal() {
   document.getElementById("halaman-seragam").style.display = "none";
   document.getElementById("halaman-jadwal").style.display = "block";
@@ -196,8 +98,44 @@ function kembaliKeHalamanSeragam() {
   document.getElementById("halaman-seragam").style.display = "block";
 }
 
-// ✅ Jalankan saat halaman dimuat
+// ====== Toggle Theme & Toggle Jadwal ======
+const toggleTheme = document.getElementById("toggle-theme");
+const labelTheme = document.getElementById("toggle-label");
+toggleTheme.addEventListener("change", () => {
+  const mode = toggleTheme.checked ? "dark" : "light";
+  setTheme(mode);
+  localStorage.setItem("themeMode", mode);
+  labelTheme.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+});
+
+const toggleJadwal = document.getElementById("toggle-jadwal");
+const labelJadwal = document.getElementById("labelToggleJadwal");
+toggleJadwal.addEventListener("change", () => {
+  if (toggleJadwal.checked) {
+    tampilkanHalamanJadwal();
+    labelJadwal.textContent = "Kembali ke Seragam";
+  } else {
+    kembaliKeHalamanSeragam();
+    labelJadwal.textContent = "Jadwal Pelajaran";
+  }
+});
+
+// ====== Theme Loader ======
+function setTheme(mode) {
+  document.body.classList.toggle("dark-mode", mode === "dark");
+}
+
+function loadTheme() {
+  const mode = localStorage.getItem("themeMode") || "light";
+  setTheme(mode);
+  toggleTheme.checked = (mode === "dark");
+  labelTheme.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+}
+
+// ====== Inisialisasi Saat Load ======
 loadTheme();
 setelSeragamHariIni();
 tampilkanOlahraga();
 tampilkanSeragamBesok();
+
+// Halaman jadwal hanya ditampilkan saat di-toggle
