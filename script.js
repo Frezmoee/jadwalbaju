@@ -145,8 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mode = localStorage.getItem("themeMode") || "light";
     setTheme(mode);
     toggle.checked = mode === "dark";
-    label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
-  }
+   }
 
   function tampilkanHalamanJadwal() {
     document.getElementById("halaman-seragam").style.display = "none";
@@ -165,8 +164,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const mode = this.checked ? "dark" : "light";
   setTheme(mode);
   localStorage.setItem("themeMode", mode);
-  document.getElementById("toggle-label").textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
-});
+  });
 
 document.getElementById("toggle-jadwal").addEventListener("change", function () {
   const checked = this.checked;
