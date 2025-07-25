@@ -34,7 +34,8 @@ h1 {
 #seragam-section, 
 #olahraga-section, 
 #olahragaAuto, 
-#besok-section
+#besok-section,
+#halaman-jadwal
 {
   margin: 20px auto;
   max-width: 320px;
@@ -46,7 +47,8 @@ h1 {
 
 #seragamHariIni,
 #olahragaAuto img,
-#besok-section img 
+#besok-section img,
+#halaman-jadwal img
 {
   width: 100%;
   height: auto;
@@ -116,7 +118,8 @@ body.dark-mode #menu-panel,
 body.dark-mode #seragam-section,
 body.dark-mode #besok-section,
 body.dark-mode #olahragaAuto,
-body.dark-mode #olahraga-section 
+body.dark-mode #olahraga-section,
+body.dark-mode #halaman-jadwal
 {
   background-color: #1e1e1e;
   color: #f1f1f1;
