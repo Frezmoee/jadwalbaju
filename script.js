@@ -151,6 +151,7 @@ function toggleMenu() {
   body.classList.toggle("panel-open");
 }
 
+// ✅ Toggle tema (dark/light)
 const toggle = document.getElementById("toggle-theme");
 const label = document.getElementById("toggle-label");
 
@@ -161,7 +162,7 @@ toggle.addEventListener("change", () => {
   label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
 });
 
-// ✅ Perbaikan fungsi toggle halaman jadwal
+// ✅ Toggle halaman seragam vs jadwal
 document.getElementById("toggle-jadwal").addEventListener("change", function () {
   const checked = this.checked;
   if (checked) {
@@ -173,39 +174,21 @@ document.getElementById("toggle-jadwal").addEventListener("change", function () 
   }
 });
 
-
-
-
-// Fungsi toggle halaman berdasarkan switch
-document.getElementById("toggle-jadwal").addEventListener("change", function () {
-  const checked = this.checked;
-  if (checked) {
-    tampilkanHalamanJadwal();
-    document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
-  } else {
-    kembaliKeHalamanSeragam();
-    document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
-  });
-}
-
+// ✅ Fungsi tema
 function loadTheme() {
   const mode = localStorage.getItem("themeMode") || "light";
   setTheme(mode);
-  if (mode === "dark") {
-    toggle.checked = true;
-    label.textContent = "Dark Mode";
-  } else {
-    toggle.checked = false;
-    label.textContent = "Light Mode";
-  }
+  toggle.checked = (mode === "dark");
+  label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
 }
 
+// ✅ Navigasi antara dua halaman
 function tampilkanHalamanJadwal() {
   document.getElementById("halaman-seragam").style.display = "none";
   document.getElementById("halaman-jadwal").style.display = "block";
   tampilkanPelajaranHariIni();
   tampilkanPelajaranBesok();
-  toggleMenu(); // tutup panel
+  toggleMenu();
 }
 
 function kembaliKeHalamanSeragam() {
@@ -213,7 +196,7 @@ function kembaliKeHalamanSeragam() {
   document.getElementById("halaman-seragam").style.display = "block";
 }
 
-// Pastikan dipanggil saat load
+// ✅ Jalankan saat halaman dimuat
 loadTheme();
 setelSeragamHariIni();
 tampilkanOlahraga();
