@@ -200,21 +200,21 @@ body.panel-open #menu-toggle {
   margin-bottom: 16px;
 }
 
-.theme-switch,
-.switch {
+/* === DARK MODE TOGGLE CLEAN === */
+.theme-switch {
   position: relative;
   display: inline-block;
-  width: 50px;
+  width: 52px;
   height: 28px;
 }
 
-.switch input {
+.theme-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-.switch .slider {
+.theme-switch .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -226,7 +226,7 @@ body.panel-open #menu-toggle {
   border-radius: 34px;
 }
 
-.switch .slider:before {
+.theme-switch .slider:before {
   position: absolute;
   content: "";
   height: 22px;
@@ -238,10 +238,10 @@ body.panel-open #menu-toggle {
   border-radius: 50%;
 }
 
-.switch input:checked + .slider {
+.theme-switch input:checked + .slider {
   background-color: #4caf50;
 }
 
-.switch input:checked + .slider:before {
-  transform: translateX(22px);
+.theme-switch input:checked + .slider:before {
+  transform: translateX(24px);
 }
