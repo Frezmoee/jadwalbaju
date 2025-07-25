@@ -158,6 +158,18 @@ toggle.addEventListener("change", () => {
   setTheme(mode);
   localStorage.setItem("themeMode", mode);
   label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+
+
+// Fungsi toggle halaman berdasarkan switch
+document.getElementById("toggle-jadwal").addEventListener("change", function () {
+  const checked = this.checked;
+  if (checked) {
+    tampilkanHalamanJadwal();
+    document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
+  } else {
+    kembaliKeHalamanSeragam();
+    document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
+  }
 });
 
 function loadTheme() {
