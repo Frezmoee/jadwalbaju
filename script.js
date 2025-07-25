@@ -1,5 +1,14 @@
 let nilaiAwalOlahraga = localStorage.getItem("hariOlahraga") || "senin";
 
+function enableZoom(selector) {
+  const img = document.querySelector(selector);
+  if (!img) return;
+
+  img.addEventListener("click", () => {
+    img.classList.toggle("zoomed");
+  });
+}
+
 function getToday() {
   const days = ['minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'];
   return days[new Date().getDay()];
@@ -95,17 +104,35 @@ function setelSeragamHariIni() {
 function tampilkanPelajaranHariIni() {
   const hari = getToday();
   const img = document.getElementById("jadwalPelajaranHariIni");
-  document.getElementById("judulPelajaranHariIni").innerText = "Hari: " + capitalize(hari);
-  img.src = "jadwalpelajaran/" + hari + ".webp";
-  img.alt = "Jadwal Pelajaran " + hari;
+  const p = document.getElementById("judulPelajaranHariIni");
+  
+  if (hari === "sabtu" || hari === "minggu") {
+    p.innerText = "Hari ini libur";
+    img.style.display = "none";
+  } else {
+    p.innerText = "Hari: " + capitalize(hari);
+    img.src = "jadwalpelajaran/" + hari + ".webp";
+    img.alt = "Jadwal Pelajaran " + hari;
+    img.style.display = "block";
+    enableZoom("#jadwalPelajaranHariIni");
+  }
 }
 
 function tampilkanPelajaranBesok() {
   const hari = getBesok();
   const img = document.getElementById("jadwalPelajaranBesok");
-  document.getElementById("judulPelajaranBesok").innerText = "Hari: " + capitalize(hari);
-  img.src = "jadwalpelajaran/" + hari + ".webp";
-  img.alt = "Jadwal Pelajaran " + hari;
+  const p = document.getElementById("judulPelajaranBesok");
+  
+  if (hari === "sabtu" || hari === "minggu") {
+    p.innerText = "Besok libur";
+    img.style.display = "none";
+  } else {
+    p.innerText = "Besok: " + capitalize(hari);
+    img.src = "jadwalpelajaran/" + hari + ".webp";
+    img.alt = "Jadwal Pelajaran " + hari;
+    img.style.display = "block";
+    enableZoom("#jadwalPelajaranBesok");
+  }
 }
 
 function capitalize(str) {
