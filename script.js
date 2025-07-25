@@ -59,9 +59,21 @@ function tampilkanOlahraga() {
 
 function setelSeragamHariIni() {
   const hariIni = getToday();
-  document.getElementById("namaHari").innerText = "Hari: " + hariIni.charAt(0).toUpperCase() + hariIni.slice(1);
-  document.getElementById("seragamHariIni").src = "images/" + hariIni + ".webp";
-  document.getElementById("seragamHariIni").alt = "Seragam hari " + hariIni;
+  const namaHari = document.getElementById("namaHari");
+  const seragamImg = document.getElementById("seragamHariIni");
+  const displayOlahraga = document.getElementById("olahragaAuto");
+
+  if (hariIni === "sabtu" || hariIni === "minggu") {
+    namaHari.innerText = "Hari ini libur";
+    seragamImg.style.display = "none";
+    displayOlahraga.style.display = "none";
+  } else {
+    namaHari.innerText = "Hari: " + hariIni.charAt(0).toUpperCase() + hariIni.slice(1);
+    seragamImg.src = "images/" + hariIni + ".webp";
+    seragamImg.alt = "Seragam hari " + hariIni;
+    seragamImg.style.display = "block";
+    tampilkanOlahraga(); // jalankan ulang pemeriksaan baju olahraga
+  }
 }
 
 function setTheme(mode) {
