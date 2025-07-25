@@ -158,6 +158,7 @@ toggle.addEventListener("change", () => {
   setTheme(mode);
   localStorage.setItem("themeMode", mode);
   label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+});
 
 
 // Fungsi toggle halaman berdasarkan switch
