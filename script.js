@@ -143,34 +143,30 @@ function setTheme(mode) {
   document.body.classList.toggle("dark-mode", mode === "dark");
 }
 
-const panel = document.getElementById("menu-panel");
-const body = document.body;
-
 function toggleMenu() {
   panel.classList.toggle("show");
   body.classList.toggle("panel-open");
-
-
-// ✅ Toggle tema (dark/light)
-const toggle = document.getElementById("toggle-theme");
-const label = document.getElementById("toggle-label");
-
-toggle.addEventListener("change", () => {
-  const mode = toggle.checked ? "dark" : "light";
-  setTheme(mode);
-  localStorage.setItem("themeMode", mode);
-  label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
-});
-
-// ✅ Toggle halaman seragam vs jadwal
-document.getElementById("toggle-jadwal").addEventListener("change", function () {
-  const checked = this.checked;
+  const panel = document.getElementById("menu-panel");
+  const body = document.body;
+  const toggle = document.getElementById("toggle-theme");
+  const label = document.getElementById("toggle-label");
+  
+  toggle.addEventListener("change", () => {
+    const mode = toggle.checked ? "dark" : "light";
+    setTheme(mode);
+      localStorage.setItem("themeMode", mode);
+      label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+    });
+  document.getElementById("toggle-jadwal").addEventListener("change", 
+  function () {
+    const checked = this.checked;
   if (checked) {
     tampilkanHalamanJadwal();
-    document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
-  } else {
+      document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
+  } 
+  else {
     kembaliKeHalamanSeragam();
-    document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
+      document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
   }
 });
 
