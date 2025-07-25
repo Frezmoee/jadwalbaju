@@ -5,6 +5,22 @@ body {
   background-color: #f9f9f9;
 }
 
+.jadwal-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 12px;
+  transition: transform 0.3s ease;
+  cursor: zoom-in;
+}
+
+.jadwal-img.zoomed {
+  transform: scale(2.5);
+  cursor: zoom-out;
+  z-index: 999;
+}
+
 #namaHari {
   font-size: 18px;
   margin-bottom: 10px;
