@@ -144,32 +144,34 @@ function setTheme(mode) {
 }
 
 function toggleMenu() {
-  panel.classList.toggle("show");
-  body.classList.toggle("panel-open");
   const panel = document.getElementById("menu-panel");
   const body = document.body;
-  const toggle = document.getElementById("toggle-theme");
-  const label = document.getElementById("toggle-label");
-  
-  toggle.addEventListener("change", () => {
-    const mode = toggle.checked ? "dark" : "light";
-    setTheme(mode);
-      localStorage.setItem("themeMode", mode);
-      label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
-    });
-  document.getElementById("toggle-jadwal").addEventListener("change", 
-  function () {
-    const checked = this.checked;
+  panel.classList.toggle("show");
+  body.classList.toggle("panel-open");
+}
+
+const toggle = document.getElementById("toggle-theme");
+const label = document.getElementById("toggle-label");
+
+toggle.addEventListener("change", () => {
+  const mode = toggle.checked ? "dark" : "light";
+  setTheme(mode);
+  localStorage.setItem("themeMode", mode);
+  label.textContent = mode === "dark" ? "Dark Mode" : "Light Mode";
+});
+
+document.getElementById("toggle-jadwal").addEventListener("change", function () {
+  const checked = this.checked;
   if (checked) {
     tampilkanHalamanJadwal();
-      document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
-  } 
-  else {
+    document.getElementById("labelToggleJadwal").innerText = "Kembali ke Seragam";
+  } else {
     kembaliKeHalamanSeragam();
-      document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
+    document.getElementById("labelToggleJadwal").innerText = "Jadwal Pelajaran";
   }
 });
 
+  
 // ✅ Fungsi tema
 function loadTheme() {
   const mode = localStorage.getItem("themeMode") || "light";
