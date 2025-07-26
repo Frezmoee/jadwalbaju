@@ -202,7 +202,6 @@ body.panel-open #menu-toggle {
 }
 
 /* Gaya umum untuk kedua switch: theme dan jadwal */
-.theme-switch,
 .jadwal-switch {
   display: flex;
   align-items: center;
@@ -214,7 +213,6 @@ body.panel-open #menu-toggle {
 }
 
 /* Input switch harus disembunyikan visualnya */
-.theme-switch input,
 .jadwal-switch input {
   opacity: 0;
   width: 0;
@@ -222,7 +220,6 @@ body.panel-open #menu-toggle {
 }
 
 /* Custom switch slider */
-.theme-switch .slider,
 .jadwal-switch .slider {
   position: relative;
   width: 46px;
@@ -233,7 +230,6 @@ body.panel-open #menu-toggle {
   display: inline-block;
 }
 
-.theme-switch .slider:before,
 .jadwal-switch .slider:before {
   position: absolute;
   content: "";
@@ -247,12 +243,10 @@ body.panel-open #menu-toggle {
 }
 
 /* Warna aktif (hijau) jika switch on */
-.theme-switch input:checked + .slider,
 .jadwal-switch input:checked + .slider {
   background-color: #4caf50;
 }
 
-.theme-switch input:checked + .slider:before,
 .jadwal-switch input:checked + .slider:before {
   transform: translateX(20px);
 }
@@ -270,4 +264,74 @@ body.panel-open #menu-toggle {
   .switch-label-text {
     font-size: 13px;
   }
+}
+
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  width: 100%;
+  justify-content: flex-start;
+  font-size: 16px;
+  background: none;
+  position: relative;
+  padding: 16px 0;
+}
+
+.theme-switcher input[type="checkbox"] {
+  display: none;
+}
+
+.theme-switcher .circle {
+  width: 48px;
+  height: 48px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.08) inset;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.5s;
+  overflow: hidden;
+}
+
+.theme-switcher .sun, .theme-switcher .moon {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  transition: all 0.4s;
+}
+.theme-switcher .sun {
+  color: #FFD600;
+  opacity: 1;
+  transform: translateY(0);
+}
+.theme-switcher .moon {
+  color: #222;
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.theme-switcher input[type="checkbox"]:checked + .circle {
+  background: #1e1e1e;
+}
+
+.theme-switcher input[type="checkbox"]:checked + .circle .sun {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.theme-switcher input[type="checkbox"]:checked + .circle .moon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.theme-switcher .switch-label-text {
+  font-size: 16px;
+  margin-left: 10px;
+  color: inherit;
 }
