@@ -199,9 +199,13 @@ body.panel-open #menu-toggle {
 
 .jadwal-switch {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 10px auto;
+  gap: 12px;
+  position: relative;
+  width: max-content;
+  padding: 8px 0;
+  cursor: pointer;
+  background: none;
 }
 
 .jadwal-switch input {
@@ -211,15 +215,13 @@ body.panel-open #menu-toggle {
 }
 
 .jadwal-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  position: relative;
+  width: 48px;
+  height: 28px;
   background-color: #ccc;
-  transition: 0.4s;
   border-radius: 34px;
+  transition: 0.4s;
+  display: inline-block;
 }
 
 .jadwal-switch .slider:before {
@@ -228,7 +230,7 @@ body.panel-open #menu-toggle {
   height: 22px;
   width: 22px;
   left: 3px;
-  bottom: 3px;
+  top: 3px;
   background-color: white;
   transition: 0.4s;
   border-radius: 50%;
@@ -239,7 +241,13 @@ body.panel-open #menu-toggle {
 }
 
 .jadwal-switch input:checked + .slider:before {
-  transform: translateX(24px);
+  transform: translateX(20px);
+}
+
+.switch-label-text {
+  font-size: 16px;
+  color: inherit;
+  user-select: none;
 }
 
 /* === DARK MODE TOGGLE CLEAN === */
