@@ -145,15 +145,18 @@ document.getElementById("toggle-theme").addEventListener("change", function () {
 
 // Toggle Jadwal
 document.getElementById("toggle-jadwal").addEventListener("change", function () {
+  const label = document.getElementById("labelToggleJadwal");
   if (this.checked) {
     document.getElementById("halaman-seragam").style.display = "none";
     document.getElementById("halaman-jadwal").style.display = "block";
     tampilkanPelajaranHariIni();
     tampilkanPelajaranBesok();
+    label.textContent = "Kembali ke Seragam";
     toggleMenu();
   } else {
     document.getElementById("halaman-jadwal").style.display = "none";
     document.getElementById("halaman-seragam").style.display = "block";
+    label.textContent = "Tampilkan Jadwal";
     toggleMenu();
   }
 });
