@@ -266,72 +266,84 @@ body.panel-open #menu-toggle {
   }
 }
 
-
 .theme-switcher {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   cursor: pointer;
-  width: 100%;
-  justify-content: flex-start;
   font-size: 16px;
-  background: none;
-  position: relative;
-  padding: 16px 0;
 }
 
 .theme-switcher input[type="checkbox"] {
   display: none;
 }
 
+.theme-switcher .track {
+  width: 52px;
+  height: 28px;
+  background: #e3e3e3;
+  border-radius: 40px;
+  position: relative;
+  display: inline-block;
+  transition: background 0.3s;
+}
+
 .theme-switcher .circle {
-  width: 48px;
-  height: 48px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.08) inset;
-  position: relative;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.5s;
-  overflow: hidden;
+  z-index: 2;
+  transition: left 0.3s, background 0.3s;
 }
 
 .theme-switcher .sun, .theme-switcher .moon {
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   position: absolute;
-  left: 8px;
-  top: 8px;
-  transition: all 0.4s;
+  left: 3px;
+  top: 3px;
+  transition: opacity 0.3s, transform 0.3s;
 }
+
 .theme-switcher .sun {
   color: #FFD600;
   opacity: 1;
-  transform: translateY(0);
+  z-index: 3;
 }
+
 .theme-switcher .moon {
-  color: #222;
+  color: #333;
   opacity: 0;
-  transform: translateY(-30px);
+  z-index: 3;
 }
 
-.theme-switcher input[type="checkbox"]:checked + .circle {
-  background: #1e1e1e;
+.theme-switcher input[type="checkbox"]:checked + .track {
+  background: #333;
 }
 
-.theme-switcher input[type="checkbox"]:checked + .circle .sun {
-  opacity: 0;
-  transform: translateY(30px);
+.theme-switcher input[type="checkbox"]:checked + .track .circle {
+  left: 27px;
+  background: #222;
 }
-.theme-switcher input[type="checkbox"]:checked + .circle .moon {
+
+.theme-switcher input[type="checkbox"]:checked + .track .sun {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.theme-switcher input[type="checkbox"]:checked + .track .moon {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0px);
 }
 
 .theme-switcher .switch-label-text {
-  font-size: 16px;
-  margin-left: 10px;
-  color: inherit;
+  margin-left: 8px;
 }
