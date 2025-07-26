@@ -159,6 +159,10 @@ h2 {
   text-align: center;
 }
 
+.jadwal-card:not(:last-child) {
+  margin-bottom: 40px;
+}
+
 .jadwal-card p {
   font-size: 17px;
   margin-bottom: 6px;
