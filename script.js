@@ -145,8 +145,7 @@ document.getElementById("toggle-theme").addEventListener("change", function ()
 });
 
 // Toggle Jadwal
-document.getElementById("toggle-jadwal").addEventListener("change", function () 
-  {
+document.getElementById("toggle-jadwal").addEventListener("change", function () {
   const label = document.getElementById("labelToggleJadwal");
   if (this.checked) {
     document.getElementById("halaman-seragam").style.display = "none";
@@ -155,15 +154,14 @@ document.getElementById("toggle-jadwal").addEventListener("change", function ()
     tampilkanPelajaranBesok();
     label.textContent = "Kembali ke Seragam";
     toggleMenu();
-    } 
-  else 
-  {
+  } else {
     document.getElementById("halaman-jadwal").style.display = "none";
     document.getElementById("halaman-seragam").style.display = "block";
     label.textContent = "Tampilkan Jadwal";
     toggleMenu();
   }
 });
+
 
 // Inisialisasi Saat Load
 loadTheme();
