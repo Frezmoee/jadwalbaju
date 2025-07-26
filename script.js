@@ -153,13 +153,13 @@ document.getElementById("toggle-jadwal").addEventListener("change", function () 
     tampilkanPelajaranHariIni();
     tampilkanPelajaranBesok();
     label.textContent = "Kembali ke Seragam";
-    toggleMenu();
+    
   } else {
     document.getElementById("halaman-jadwal").style.display = "none";
     document.getElementById("halaman-seragam").style.display = "block";
     label.textContent = "Tampilkan Jadwal";
-    toggleMenu();
   }
+  toggleMenu();
 });
 
 
