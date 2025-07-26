@@ -193,6 +193,10 @@ body.panel-open #menu-toggle {
   display: none;
 }
 
+.toggle-container p {
+  display: none;
+}
+
 .jadwal-switch {
   display: flex;
   justify-content: center;
