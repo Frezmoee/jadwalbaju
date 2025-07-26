@@ -3,82 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Seragam Hari Ini</title>
+  <title>Jadwal Baju Sekolah</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div id="menu-toggle" onclick="toggleMenu()">☰</div>
+  <!-- Tombol Toggle Panel -->
+  <div id="menu-toggle" onclick="toggleMenu()">☰</div>
 
-<div id="menu-panel">
-  <button id="close-panel" onclick="toggleMenu()">X</button>
-  <h3>Pengaturan</h3>
+  <!-- Panel Menu -->
+  <div id="menu-panel">
+    <button id="close-panel" onclick="toggleMenu()">×</button>
+    <h3>Pengaturan</h3>
 
-  <!-- Theme switch -->
-  <div class="toggle-container">
+    <!-- Switch Jadwal -->
+    <label class="theme-switch">
+      <input type="checkbox" id="toggle-jadwal" />
+      <span class="slider"></span>
+    </label>
+    <div style="margin-bottom: 10px; font-size: 14px;">Tampilkan Jadwal</div>
+
+    <!-- Switch Dark Mode -->
     <label class="theme-switch">
       <input type="checkbox" id="toggle-theme" />
-      <span class="slider round"></span>
+      <span class="slider"></span>
     </label>
+    <div style="font-size: 14px;">Mode Gelap</div>
   </div>
 
-  <!-- Halaman switch -->
-<div class="toggle-container">
-  <label class="theme-switch">
-    <input type="checkbox" id="toggle-theme" />
-    <span class="slider round"></span>
-  </label>
-</div>
-</div>
-  
-<div id="halaman-seragam"> 
-  
-  <h1>Seragam Hari Ini</h1>
+  <!-- Halaman Seragam -->
+  <div id="halaman-seragam">
+    <h1>Seragam Hari Ini</h1>
 
-  <div id="seragam-section">
-    <h2 id="namaHari"></h2>
-    <img id="seragamHariIni" src="" alt="Seragam Hari Ini" class="seragam-img" loading="lazy" />
+    <div id="seragam-section">
+      <p id="namaHari">...</p>
+      <img id="seragamHariIni" src="" alt="Seragam Hari Ini" />
+    </div>
+
+    <div id="besok-section">
+      <h2>Baju Esok Hari</h2>
+      <p id="namaBesokHari">...</p>
+      <img id="seragamBesok" src="" alt="Seragam Besok" />
+    </div>
+
+    <div id="olahraga-section">
+      <h2>Pilih Hari Baju Olahraga</h2>
+      <select id="olahragaDay">
+        <option value="senin">Senin</option>
+        <option value="selasa">Selasa</option>
+        <option value="rabu">Rabu</option>
+        <option value="kamis">Kamis</option>
+        <option value="jumat">Jumat</option>
+      </select>
+      <div style="margin-top: 10px;">
+        <button onclick="simpanOlahraga()">Simpan</button>
+        <button onclick="batalOlahraga()">Batal</button>
+      </div>
+    </div>
+
+    <div id="olahragaAuto" style="display: none;">
+      <h2>Baju Olahraga Hari Ini</h2>
+      <img src="images/olahraga.webp" alt="Baju Olahraga" />
+    </div>
   </div>
-  
 
-<div id="besok-section">
-  <h2>Baju Esok Hari</h2>
-  <p id="namaBesokHari"></p>
-  <img id="seragamBesok" src="" alt="Seragam Besok" class="seragam-img" loading="lazy" />
-</div>
+  <!-- Halaman Jadwal Pelajaran -->
+  <div id="halaman-jadwal" style="display: none;">
+    <h1>Jadwal Pelajaran</h1>
 
-  <div id="olahragaAuto" style="display:none">
-    <h2>Hari ini baju olahraga!</h2>
-    <img src="images/olahraga.webp" alt="Baju Olahraga" class="seragam-img" loading="lazy" />
+    <div id="pelajaran-hari-ini">
+      <h2 id="judulPelajaranHariIni">Hari ini</h2>
+      <img id="jadwalPelajaranHariIni" class="jadwal-img" src="" alt="Jadwal Hari Ini" />
+    </div>
+
+    <div id="pelajaran-besok">
+      <h2 id="judulPelajaranBesok">Besok</h2>
+      <img id="jadwalPelajaranBesok" class="jadwal-img" src="" alt="Jadwal Besok" />
+    </div>
   </div>
 
-<div id="olahraga-section">
-  <h2>Pilih Hari Baju Olahraga</h2>
-  <select id="olahragaDay">
-    <option value="senin">Senin</option>
-    <option value="selasa">Selasa</option>
-    <option value="rabu">Rabu</option>
-    <option value="kamis">Kamis</option>
-    <option value="jumat">Jumat</option>
-  </select>
-  <div style="margin-top:10px;">
-    <button onclick="simpanOlahraga()">Simpan</button>
-    <button onclick="batalOlahraga()">Batal</button>
-  </div>
- </div>
-  
-</div>
-
-<div id="halaman-jadwal" style="display:none;">
-  <h2>Jadwal Pelajaran Hari Ini</h2>
-  <p id="judulPelajaranHariIni"></p>
-  <img id="jadwalPelajaranHariIni" class="jadwal-img" loading="lazy" alt="" />
-
-  <h2>Jadwal Pelajaran Besok</h2>
-  <p id="judulPelajaranBesok"></p>
-  <img id="jadwalPelajaranBesok" class="jadwal-img" loading="lazy" alt="" />
-</div>
-  
   <script src="script.js"></script>
 </body>
 </html>
