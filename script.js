@@ -90,6 +90,7 @@ function simpanOlahraga() {
   localStorage.setItem("hariOlahraga", selected);
   nilaiAwalOlahraga = selected;
   tampilkanOlahraga();
+  tampilkanSeragamBesok();
 }
 
 function batalOlahraga() {
@@ -97,6 +98,7 @@ function batalOlahraga() {
   nilaiAwalOlahraga = "senin";
   document.getElementById("olahragaDay").value = "senin";
   tampilkanOlahraga();
+  tampilkanSeragamBesok();
 }
 
 // Jadwal Pelajaran
