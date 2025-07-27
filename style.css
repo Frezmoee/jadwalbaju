@@ -179,7 +179,7 @@ h2 {
 
 
 /* DARK MODE tambahan */
-body.dark-mode {#menu-toggle,
+ body.dark-mode #menu-toggle,
  #menu-panel,
  #seragam-section,
  #besok-section,
@@ -187,7 +187,7 @@ body.dark-mode {#menu-toggle,
  #olahraga-section,
  #halaman-jadwal,
  #olahraga-besok-section,
- .jadwal-card}
+ .jadwal-card
 {
   background-color: #1e1e1e;
   color: #f1f1f1;
