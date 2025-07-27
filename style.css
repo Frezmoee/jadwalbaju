@@ -176,13 +176,13 @@ h2 {
 
 /* DARK MODE tambahan */
  body.dark-mode #menu-toggle,
- #menu-panel,
- #seragam-section,
- #besok-section,
- #olahragaAuto,
- #olahraga-section,
- #olahraga-besok-section,
- .jadwal-card
+ body.dark-mode #menu-panel,
+ body.dark-mode #seragam-section,
+ body.dark-mode #besok-section,
+ body.dark-mode #olahragaAuto,
+ body.dark-mode #olahraga-section,
+ body.dark-mode #olahraga-besok-section,
+ body.dark-mode .jadwal-card
 {
   background-color: #1e1e1e;
   color: #f1f1f1;
