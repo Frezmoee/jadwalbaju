@@ -137,7 +137,7 @@ h2 {
   max-width: 370px;
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 20px;
   background: none;
   box-shadow: none;
   padding: 0;
