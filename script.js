@@ -182,3 +182,4 @@ document.getElementById("toggle-jadwal").addEventListener("change", function () 
 loadTheme();
 setelSeragamHariIni();
 tampilkanSeragamBesok();
+tampilkanOlahraga();
