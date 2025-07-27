@@ -45,16 +45,29 @@ function tampilkanSeragamBesok() {
   const hari = getBesok();
   const img = document.getElementById("seragamBesok");
   const teks = document.getElementById("namaBesokHari");
+  const olahragaBesokSection = document.getElementById("olahraga-besok-section");
+  const olahragaBesokHari = document.getElementById("olahragaBesokHari");
+  const olahragaBesokImg = document.getElementById("olahragaBesokImg");
   const olahragaHari = localStorage.getItem("hariOlahraga") || "senin";
 
   if (hari === "sabtu" || hari === "minggu") {
     teks.innerText = "Besok libur";
     img.style.display = "none";
+    olahragaBesokSection.style.display = "none";
   } else {
     teks.innerText = "Hari: " + capitalize(hari);
-    img.src = (hari === olahragaHari) ? "images/olahraga.webp" : "images/" + hari + ".webp";
+    img.src = "images/" + hari + ".webp"; // Selalu seragam harian, tidak pernah olahraga
     img.alt = "Seragam Hari " + hari;
     img.style.display = "block";
+
+    // Tampilkan card olahraga hanya jika besok hari olahraga
+    if (hari === olahragaHari) {
+      olahragaBesokSection.style.display = "block";
+      olahragaBesokHari.innerText = "Hari: " + capitalize(hari);
+      olahragaBesokImg.style.display = "block";
+    } else {
+      olahragaBesokSection.style.display = "none";
+    }
   }
 }
 
