@@ -55,7 +55,9 @@ h1 {
 #olahraga-section, 
 #olahragaAuto, 
 #besok-section,
-#halaman-jadwal
+#halaman-jadwal,
+#olahraga-besok-section
+
 {
   margin: 20px auto;
   max-width: 320px;
