@@ -20,7 +20,7 @@ body {
 }
 
 .jadwal-img.zoomed {
-  transform: scale(2.5);
+  transform: scale(1.5);
   cursor: zoom-out;
   z-index: 999;
 }
