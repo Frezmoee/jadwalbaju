@@ -178,6 +178,12 @@ document.getElementById("toggle-jadwal").addEventListener("change", function () 
 });
 
 
+// Reset tombol jadwal ke posisi default setiap reload
+document.getElementById("toggle-jadwal").checked = false;
+document.getElementById("halaman-jadwal").style.display = "none";
+document.getElementById("halaman-seragam").style.display = "block";
+document.getElementById("labelToggleJadwal").textContent = "Tampilkan Jadwal";
+
 // Inisialisasi Saat Load
 loadTheme();
 setelSeragamHariIni();
